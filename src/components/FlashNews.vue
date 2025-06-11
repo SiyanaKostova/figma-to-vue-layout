@@ -48,41 +48,35 @@ const news = [
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&display=swap");
-$font: 'Bricolage Grotesque', sans-serif;
-$mint-bg: #ccf4ea;
-$mint-border: #00d498;
-$date-color: #595d61;
+@import "../assets/scss/typography";
 
 .flash-news-wrapper,
 .flash-title,
 .product-name,
 .date {
-  font-family: $font;
+  font-family: var(--font-family);
 }
 
 .flash-news-wrapper {
   height: 142px;
   border-radius: 15px;
-  background: $mint-bg;
+  background: var(--color-primary-100);
   padding: 16px 20px;
   margin: 20px 95px 0 95px;
 }
 
 .flash-title {
-  font-weight: 600;
-  font-size: 16px;
+  font: $font-16-bold;
   line-height: 100%;
-  color: #2a2a2a;
+  color: var(--color-gray-700);
   padding-top: 2px;
   padding-bottom: 13px;
 }
 
 .product-name {
-  font-weight: 400;
-  font-size: 16px;
+  font: $font-16-regular;
   line-height: 100%;
-  color: #2a2a2a;
+  color: var(--color-gray-700);
 }
 
 .tiles-row {
@@ -92,25 +86,25 @@ $date-color: #595d61;
 
 .news-tile {
   flex: 1 1 0;
-  background: #fff;
-  border: 1px solid $mint-border;
+  background: var(--color-white);
+  border: 1px solid var(--color-primary-700);
   border-radius: 5px;
   padding: 8px 12px;
-  font-size: 14px;
+  font-size: $font-sm;
 }
 
 .date {
-  font-size: 12px;
-  font-weight: 400;
-  color: $date-color;
+  font-size: $font-xs;
+  font-weight: $font-normal;
+  color: var(--color-gray-500);
 }
 
 .dot {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background-color: $mint-border;
-  border: 1px solid $mint-border;
+  background-color: var(--color-primary-700);
+  border: 1px solid var(--color-primary-700);
   border-radius: 50%;
   margin-right: 3px;
   position: relative;
@@ -122,14 +116,13 @@ $date-color: #595d61;
   right: 0;
   width: 40px;
   height: 100%;
-  background: #fff;
-  border: 1px solid $mint-border;
+  background: var(--color-white);
+  border: 1px solid var(--color-primary-700);
   border-left: none;
   border-radius: 0 4px 4px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $mint-border;
+  color: var(--color-primary-700);
 }
-
 </style>

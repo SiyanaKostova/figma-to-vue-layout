@@ -13,11 +13,11 @@
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&display=swap");
+@import "../assets/scss/typography";
 
 .breadcrumb-wrapper {
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-size: 14px;
+  font-family: var(--font-family);
+  font-size: $font-sm;
   line-height: 100%;
   margin: 0 0 0 97px;
   height: 17px;
@@ -31,18 +31,18 @@
 
 .breadcrumb-item + .breadcrumb-item::before {
   content: ">";
-  color: #00c898;
+  color: var(--color-primary-500);
   padding: 0 5px;
 }
 
 .breadcrumb-item a {
-  color: #595D61;
+  color: var(--color-gray-500);
+  font-weight: $font-normal;
   text-decoration: none;
-  font-weight: 400;
 }
 
 .breadcrumb-item.active {
-  color: #00c898;
-  font-weight: 700;
+  color: var(--color-primary-500);
+  font-weight: $font-bold;
 }
 </style>

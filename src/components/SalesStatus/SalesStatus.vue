@@ -15,24 +15,19 @@
 </template>
 
 <script setup>
-import infoIcon from '../assets/info.svg'
+import infoIcon from '../../assets/icons/info.svg'
 import StatusCard from './StatusCard.vue'
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&display=swap");
-
-$border-color: #e3e2e0;
-$background-color: #f9f9f9;
-$card-color: #ffffff;
-$title-color: #2a2a2a;
+@import "../../assets/scss/typography";
 
 .sales-status-wrapper {
   height: 200px;
   margin: 20px 95px 0 95px;
-  border: 1px solid $border-color;
+  border: 1px solid var(--color-gray-300);
   border-radius: 20px;
-  background-color: $background-color;
+  background-color: var(--color-gray-25);
   padding: 20px;
 }
 
@@ -40,13 +35,12 @@ $title-color: #2a2a2a;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: "Bricolage Grotesque", sans-serif;
-  color: $title-color;
+  font-family: var(--font-family);
+  color: var(--color-gray-700);
 }
 
 .title-text {
-  font-weight: 600;
-  font-size: 20px;
+  font: $font-20-bold;
   line-height: 100%;
 }
 

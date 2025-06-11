@@ -1,0 +1,6 @@
+[
+  { "combination": "Product 3 Customer 2", "distribution": 458, "distPerc": 8, "erosion": 287, "erosPerc": 4, "total": 688, "totalPerc": 12 },
+  { "combination": "Product 3 Customer 2", "distribution": 457, "distPerc": 7, "erosion": 363, "erosPerc": 6, "total": 451, "totalPerc": 10 },
+  { "combination": "Product 3 Customer 2", "distribution": 213, "distPerc": 5, "erosion": 451, "erosPerc": 5, "total": 210, "totalPerc": 10 },
+  { "combination": "Product 3 Customer 2", "distribution": 112, "distPerc": 4, "erosion": 117, "erosPerc": 5, "total": 191, "totalPerc": 9 }
+]

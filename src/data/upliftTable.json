@@ -1,0 +1,6 @@
+[
+  { "combination": "Product 3 Customer 2", "pricePlay": 458, "pricePerc": 8, "volumePlay": 287, "volumePerc": 4, "total": 688, "totalPerc": 12 },
+  { "combination": "Product 3 Customer 2", "pricePlay": 457, "pricePerc": 7, "volumePlay": 363, "volumePerc": 6, "total": 451, "totalPerc": 10 },
+  { "combination": "Product 3 Customer 2", "pricePlay": 213, "pricePerc": 5, "volumePlay": 451, "volumePerc": 5, "total": 210, "totalPerc": 10 },
+  { "combination": "Product 3 Customer 2", "pricePlay": 112, "pricePerc": 4, "volumePlay": 117, "volumePerc": 5, "total": 191, "totalPerc": 9 }
+]

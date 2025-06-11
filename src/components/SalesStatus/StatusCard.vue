@@ -17,9 +17,9 @@
 
 <script setup>
 import { computed } from 'vue'
-import up from '../assets/up.svg'
-import down from '../assets/down.svg'
-import forward from '../assets/forward.svg'
+import up from '../../assets/icons/up.svg'
+import down from '../../assets/icons/down.svg'
+import forward from '../../assets/icons/forward.svg'
 
 const props = defineProps({
   title:  String,
@@ -54,18 +54,13 @@ const titleParts = computed(() => {
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap");
-
-$border-color:  #e3e2e0;
-$card-color:    #ffffff;
-$title-color:   #2a2a2a;
-$unit-color:    #818181;
+@import "../../assets/scss/typography";
 
 .status-card {
   flex: 1;
   height: 116px;
-  background-color: $card-color;
-  border: 1px solid $border-color;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
   border-radius: 15px;
   padding: 15px;
   display: flex;
@@ -76,26 +71,22 @@ $unit-color:    #818181;
 .card-title {
   display: flex;
   align-items: baseline;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--color-gray-300);
   padding-bottom: 5px;
   margin-bottom: 10px;
 }
 
 .title-text {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
+  font: $font-16-bold;
   line-height: 100%;
-  color: $title-color;
+  color: var(--color-gray-700);
   margin-right: 4px;
 }
 
 .title-unit {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
+  font: $font-16-regular;
   line-height: 100%;
-  color: $unit-color;
+  color: var(--color-gray-400);
 }
 
 .card-content {
@@ -106,22 +97,18 @@ $unit-color:    #818181;
 }
 
 .card-value {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 700;
-  font-size: 25px;
+  font: $font-bold $font-xl var(--font-family);
   line-height: 100%;
-  color: $title-color;
+  color: var(--color-gray-700);
 }
 
 .change-box {
   width: 71px;
   height: 30px;
-  background-color: #f5f5f5;
-  border: 1px solid $border-color; 
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-300);
   border-radius: 6px;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
+  font: $font-16-regular;
   line-height: 100%;
   display: flex;
   align-items: center;

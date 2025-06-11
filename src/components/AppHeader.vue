@@ -8,9 +8,9 @@
 
         <div class="right-side d-flex align-items-center gap-4">
           <div class="nav-links d-flex align-items-center gap-4">
-            <span class="nav-link font-400">Company</span>
-            <span class="nav-link font-700 active">Product</span>
-            <span class="nav-link font-500">Customer</span>
+            <span class="nav-link nav-regular">Company</span>
+            <span class="nav-link nav-bold active">Product</span>
+            <span class="nav-link nav-medium">Customer</span>
           </div>
           <div class="profile-box">
             <img :src="profileIcon" alt="Profile" class="profile-img" />
@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import logo from "../assets/supply.svg";
-import profileIcon from "../assets/profile.svg";
+import logo from "../assets/icons/supply.svg";
+import profileIcon from "../assets/icons/profile.svg";
 
 export default {
   name: "AppHeader",
@@ -37,13 +37,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&display=swap');
+@import "../assets/scss/typography";
 
 .app-header {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: var(--font-family);
   height: 80px;
-  background-color: white;
-  border-bottom: 1px solid #e6e6e6;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
   position: fixed;
   top: 0;
   left: 0;
@@ -76,45 +76,45 @@ export default {
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0;
-  color: #444;
+  color: var(--color-gray-600);
   transition: color 0.2s;
 }
 
 .nav-link:hover {
-  color: #00c898;
+  color: var(--color-primary-500);
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -32px; 
+  bottom: -32px;
   right: -9px;
   width: 76px;
   height: 4px;
-  background-color: #00c898;
+  background-color: var(--color-primary-500);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .nav-link.active {
-  color: #00c898;
+  color: var(--color-primary-500);
 }
 
 .nav-link.active::after {
   transform: scaleX(1);
 }
 
-.font-400 {
-  font-weight: 400;
+/* font tokens */
+.nav-regular {
+  font: $font-16-regular;
 }
-
-.font-500 {
+.nav-medium {
   font-weight: 500;
+  font-family: var(--font-family);
 }
-
-.font-700 {
-  font-weight: 700;
+.nav-bold {
+  font: $font-16-bold;
 }
 
 .profile-img {

@@ -1,0 +1,25 @@
+:root {
+  --font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+$font-family: var(--font-family);
+
+/* Font sizes */
+$font-xs:    12px;
+$font-sm:    14px;
+$font-base:  16px;
+$font-lg:    20px;
+$font-xl:    25px;
+
+/* Font weights */
+$font-light:  300;
+$font-normal: 400;
+$font-medium: 500;
+$font-bold:   700;
+
+/* Font shorthand tokens */
+$font-14-regular: $font-normal $font-sm $font-family;
+$font-16-regular: $font-normal $font-base $font-family;
+$font-16-bold:    $font-bold $font-base $font-family;
+$font-20-bold:    $font-bold $font-lg $font-family;
+$font-25-bold:    $font-bold $font-xl $font-family;
