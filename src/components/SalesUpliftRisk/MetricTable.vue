@@ -50,7 +50,7 @@ const props = defineProps({
   columns: Array
 })
 
-const sortAsc = ref(true)
+const sortAsc = ref(false)
 function toggleSort() {
   sortAsc.value = !sortAsc.value
 }
@@ -117,6 +117,8 @@ function secondPart(str) {
   display: flex;
   gap: 6px;
   justify-content: flex-start;
+  align-items: center;
+  height: 100%;
 }
 .comb-first {
   padding-right: 6px;
