@@ -20,10 +20,22 @@
         <div class="row-content">
           <span class="row-label">{{ row.label }}:</span>
           <span class="row-amount">€{{ formatNumber(row.value) }}</span>
-          <span class="row-percent" :class="percentClass(row.percent)">
+
+          <div v-if="row.percent === 4" class="special-change-box positive">
+            +4%
+          </div>
+          <div
+            v-else-if="row.percent === -4"
+            class="special-change-box negative"
+          >
+            -4%
+          </div>
+
+          <span v-else class="row-percent" :class="percentClass(row.percent)">
             {{ row.percent > 0 ? "+" : "" }}{{ row.percent }}%
           </span>
           <img
+            v-if="row.percent !== 4 && row.percent !== -4"
             :src="arrowIcon(row.percent)"
             alt="trend"
             class="percent-arrow"
@@ -111,10 +123,9 @@ const arrowIcon = (p) => (p > 0 ? upArrow : p < 0 ? downArrow : forwardArrow);
   }
 
   .tb-separator {
-    flex-shrink: 0;
     height: 1px;
     background-color: var(--color-gray-300);
-    margin-bottom: 7px;
+    margin: 0 0 7px;
   }
 
   .tb-rows {
@@ -127,9 +138,8 @@ const arrowIcon = (p) => (p > 0 ? upArrow : p < 0 ? downArrow : forwardArrow);
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       border: 1px solid var(--color-primary-700);
-      background-color: var(--color-white);
+      background: var(--color-white);
       height: 40px;
       padding: 0 12px;
       border-radius: 8px;
@@ -143,7 +153,6 @@ const arrowIcon = (p) => (p > 0 ? upArrow : p < 0 ? downArrow : forwardArrow);
         .row-label {
           font: $font-14-regular;
         }
-
         .row-amount {
           font: $font-16-bold;
         }
@@ -162,6 +171,25 @@ const arrowIcon = (p) => (p > 0 ? upArrow : p < 0 ? downArrow : forwardArrow);
         .percent-arrow {
           width: 12px;
           height: 12px;
+        }
+
+        .special-change-box {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          height: 20px;
+          padding: 0 8px;
+          border: 1px solid var( --color-gray-300);
+          background-color: var(--color-gray-25);
+          border-radius: 6px;
+          font: $font-16-regular;
+
+          &.positive {
+            color: var(--color-primary-600);
+          }
+          &.negative {
+            color: var(--color-danger-300);
+          }
         }
       }
 
