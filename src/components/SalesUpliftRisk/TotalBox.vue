@@ -61,7 +61,7 @@ const props = defineProps({
 });
 
 const formatNumber = (n) =>
-  n.toLocaleString("en-US", { maximumFractionDigits: 0 });
+  n.toLocaleString("en-US", { maximumFractionDigits: 0 }).replace(/,/g, " ");
 
 const percentClass = (p) => (p > 0 ? "positive" : p < 0 ? "negative" : "");
 
