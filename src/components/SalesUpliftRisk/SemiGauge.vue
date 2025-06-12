@@ -14,7 +14,7 @@ const props = defineProps({
   border: { type: String, default: "#01D296" },
   centerColor: { type: String, default: "#09A578" },
   redArrowColor: { type: String, default: "#B80D0D" },
-  isRed: { type: Boolean, default: false }
+  isRed: { type: Boolean, default: false },
 });
 
 const svgEl = ref(null);
@@ -45,12 +45,12 @@ onMounted(() => {
     .attr("markerUnits", "strokeWidth")
     .attr("markerWidth", 4)
     .attr("markerHeight", 6)
-    .attr("refX", 6)
+    .attr("refX", 5)
     .attr("refY", 3)
     .attr("orient", "auto")
     .append("path")
     .attr("d", "M0,1 L6,3 L0,5 Z")
-    .attr("fill", props.isRed ? props.redArrowColor : props.endColor); // ✅ Conditional fill
+    .attr("fill", props.isRed ? props.redArrowColor : props.endColor);
 
   const fullArc = d3
     .arc()
@@ -68,17 +68,34 @@ onMounted(() => {
 
   const theta = Math.PI + (props.value / 30) * Math.PI;
 
-  const cx = r,
-    cy = r;
+  const cx = r;
+  const cy = r;
+  const arrowLength = r - 6; 
+  const xEnd = cx + arrowLength * Math.cos(theta);
+  const yEnd = cy + arrowLength * Math.sin(theta);
+  const dotX = cx + r * Math.cos(theta);
+  const dotY = cy + r * Math.sin(theta);
+
+  // Arrow line
   svg
     .append("line")
     .attr("x1", cx)
     .attr("y1", cy)
-    .attr("x2", cx + r * Math.cos(theta))
-    .attr("y2", cy + r * Math.sin(theta))
-    .attr("stroke", props.isRed ? props.redArrowColor : props.endColor) // ✅ Conditional stroke
+    .attr("x2", xEnd)
+    .attr("y2", yEnd)
+    .attr("stroke", props.isRed ? props.redArrowColor : props.endColor)
     .attr("stroke-width", 4)
     .attr("marker-end", `url(#${arrowId})`);
+
+  // Tip dot
+  svg
+    .append("circle")
+    .attr("cx", dotX)
+    .attr("cy", dotY)
+    .attr("r", 5)
+    .attr("fill", props.isRed ? props.redArrowColor : props.endColor) 
+    .attr("stroke", props.isRed ? props.redArrowColor : props.endColor) 
+    .attr("stroke-width", 2);
 
   const labelY = r + 20;
   svg
