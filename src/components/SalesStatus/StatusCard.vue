@@ -61,7 +61,7 @@ const titleParts = computed(() => {
   background-color: var(--color-white);
   border: 1px solid var(--color-gray-300);
   border-radius: 15px;
-  padding: 15px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,8 +71,7 @@ const titleParts = computed(() => {
   display: flex;
   align-items: baseline;
   border-bottom: 1px solid var(--color-gray-300);
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .title-text {
