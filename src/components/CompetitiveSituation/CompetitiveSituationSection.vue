@@ -6,9 +6,22 @@
         <img :src="infoIcon" alt="info" />
       </div>
 
-      <!-- Three cards will go here next -->
       <div class="card-row">
-        <!-- We'll insert CompetitiveSituationCard components here later -->
+        <CompetitiveSituationCard
+          title="Competitive Edge in Market"
+          :score="80"
+          :change="10"
+        />
+        <CompetitiveSituationCard
+          title="Competitive Edge Created"
+          :score="45"
+          :change="-3"
+        />
+        <CompetitiveSituationCard
+          title="Position of Strength"
+          :score="81"
+          :change="5"
+        />
       </div>
     </div>
   </section>
@@ -16,6 +29,7 @@
 
 <script setup>
 import infoIcon from "../../assets/icons/info.svg";
+import CompetitiveSituationCard from "./CompetitiveCard.vue";
 </script>
 
 <style scoped lang="scss">
@@ -30,7 +44,7 @@ import infoIcon from "../../assets/icons/info.svg";
   border: 1px solid var(--color-gray-300);
   border-radius: 20px;
   padding: 20px;
-  height: 256px;
+  /* no fixed height — let contents flow */
 }
 
 .section-title {
@@ -41,10 +55,15 @@ import infoIcon from "../../assets/icons/info.svg";
   gap: 10px;
 }
 
-/* Reserve space for cards (to be implemented next) */
 .card-row {
   margin-top: 20px;
   display: flex;
   gap: 16px;
+}
+
+/* ensure each card is 1/3 of the row (minus the two gutters) */
+.card-row > * {
+  flex: 1 1 calc((100% - 2 * 16px) / 3);
+  min-width: 0; /* prevents overflow */
 }
 </style>

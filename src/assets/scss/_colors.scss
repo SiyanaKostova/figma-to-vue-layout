@@ -1,41 +1,45 @@
 /* GLOBAL COLOR TOKENS — keep HEX uppercase for readability */
 :root {
   /* brand green */
-  --color-primary-100: #CCF4EA;
-  --color-primary-300: #8AFFCE;
-  --color-primary-500: #00C898;
-  --color-primary-600: #01D296;
-  --color-primary-650: #09A578;
-  --color-primary-700: #00D498;
-  --color-primary-750: #248E70;
-  --color-primary-800: #006E4F;
+  --color-primary-100: #ccf4ea;
+  --color-primary-300: #8affce;
+  --color-primary-500: #00c898;
+  --color-primary-600: #01d296;
+  --color-primary-650: #09a578;
+  --color-primary-700: #00d498;
+  --color-primary-750: #248e70;
+  --color-primary-800: #006e4f;
 
   /* accent indigo */
-  --color-accent-300: #747BFF;
-  --color-accent-500: #646CFF;
-  --color-accent-600: #535BF2;
+  --color-accent-300: #747bff;
+  --color-accent-500: #646cff;
+  --color-accent-600: #535bf2;
 
   /* danger / error */
-  --color-danger-100: #FFCFCF;
-  --color-danger-200: #FFA1A1;
-  --color-danger-500: #B80D0D;
+  --color-danger-100: #ffcfcf;
+  --color-danger-200: #ffa1a1;
+  --color-danger-500: #b80d0d;
+
+  /* yellow (competitive bar) */
+  --color-yellow-100: #fff84a;
+  --color-yellow-200: #ffd600;
 
   /* neutrals & text */
-  --color-gray-900: #1A1A1A;
+  --color-gray-900: #1a1a1a;
   --color-gray-850: #213547;
   --color-gray-800: #242424;
-  --color-gray-700: #2A2A2A;
+  --color-gray-700: #2a2a2a;
   --color-gray-600: #444444;
-  --color-gray-500: #595D61;
+  --color-gray-500: #595d61;
   --color-gray-400: #818181;
-  --color-gray-300: #E3E2E0;
-  --color-gray-200: #E6E6E6;
-  --color-gray-100: #F5F5F5;
-  --color-gray-50 : #F8F9FA;
-  --color-gray-25 : #F9F9F9;
+  --color-gray-300: #e3e2e0;
+  --color-gray-200: #e6e6e6;
+  --color-gray-100: #f5f5f5;
+  --color-gray-50: #f8f9fa;
+  --color-gray-25: #f9f9f9;
 
   /* utility */
-  --color-black   : #000000;
-  --color-white   : #FFFFFF;
-  --color-white-87: rgba(255,255,255,.87);
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-white-87: rgba(255, 255, 255, 0.87);
 }
