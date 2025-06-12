@@ -4,34 +4,45 @@
       <tr>
         <th>Combination</th>
 
-        <template v-for="c in columns" :key="c.key">
+        <template v-for="(c, idx) in columns" :key="c.key">
           <th
             v-if="c.key === 'total'"
             @click="toggleSort"
-            :class="{ sortable:true, active: sortAsc }"
+            :class="[
+              { sortable: true, active: sortAsc },
+              { 'no-divider': isGroupBoundary(idx) }
+            ]"
           >
             {{ c.label }}
           </th>
-          <th v-else>{{ c.label }}</th>
+          <th
+            v-else
+            :class="{ 'no-divider': isGroupBoundary(idx) }"
+          >
+            {{ c.label }}
+          </th>
         </template>
       </tr>
     </thead>
 
     <tbody>
-      <tr v-for="(row, idx) in sortedRows" :key="idx">
+      <tr v-for="(row, ridx) in sortedRows" :key="ridx">
         <td class="combo-cell">
           <span class="comb-first">{{ firstPart(row.combination) }}</span>
           <span class="comb-second">{{ secondPart(row.combination) }}</span>
         </td>
 
-        <template v-for="c in columns" :key="c.key">
-          <td v-if="row[c.key] !== undefined">
+        <template v-for="(c, cidx) in columns" :key="c.key">
+          <td
+            v-if="row[c.key] !== undefined"
+            :class="{ 'no-divider': isGroupBoundary(cidx) }"
+          >
             <span v-if="c.percent" class="percent">
               {{ row[c.key] }} ({{ row[c.percent] }}%)
             </span>
             <span v-else>
               {{ row[c.key] }}
-              <template v-if="c.key==='total'">
+              <template v-if="c.key === 'total'">
                 ({{ row.totalPerc }}%)
               </template>
             </span>
@@ -67,6 +78,11 @@ function firstPart(str) {
 function secondPart(str) {
   return str.split(' ').slice(2).join(' ')
 }
+
+const boundaryIndices = [1, 2, 4, 5]
+function isGroupBoundary(colIdx) {
+  return boundaryIndices.includes(colIdx)
+}
 </script>
 
 <style scoped lang="scss">
@@ -79,10 +95,14 @@ function secondPart(str) {
 
 .metric-table th {
   padding: 6px 8px;
-  font: $font-normal $font-xs var(--font-family); 
+  font: $font-normal $font-xs var(--font-family);
   color: var(--color-gray-400);
   border-bottom: 1px solid var(--color-gray-300);
   text-align: left;
+}
+
+.metric-table th:not(:first-child) {
+  text-align: center;
 }
 
 .sortable {
@@ -100,6 +120,10 @@ function secondPart(str) {
 .metric-table th:not(:first-child),
 .metric-table td:not(:first-child) {
   border-left: 1px dotted var(--color-gray-300);
+}
+
+.no-divider {
+  border-left: none !important;
 }
 
 .metric-table td {
