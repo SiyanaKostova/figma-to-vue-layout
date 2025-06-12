@@ -11,12 +11,7 @@ Key features include flash-news tickers, sales-status cards, D3-driven semicircl
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-- Node.js v16+
-- npm v8+ (or Yarn)
-
-### 1. Scaffold & Install
+### Scaffold & Install
 
 ```bash
 # Create project from the Vite Vue template
