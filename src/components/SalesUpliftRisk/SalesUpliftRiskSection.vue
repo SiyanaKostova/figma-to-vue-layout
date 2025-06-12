@@ -97,7 +97,7 @@ const riskCols = [
 @import "../../assets/scss/typography";
 
 .wrapper {
-  margin: 20px 107px 0 107px;
+  margin: 20px 108px 0 108px;
 }
 .row {
   display: flex;
