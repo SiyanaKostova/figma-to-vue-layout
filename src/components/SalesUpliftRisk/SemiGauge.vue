@@ -43,7 +43,7 @@ onMounted(() => {
     .attr("id", arrowId)
     .attr("viewBox", "0 0 6 6")
     .attr("markerUnits", "strokeWidth")
-    .attr("markerWidth", 6)
+    .attr("markerWidth", 4)
     .attr("markerHeight", 6)
     .attr("refX", 6)
     .attr("refY", 3)
