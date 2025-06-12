@@ -44,7 +44,6 @@ import CompetitiveSituationCard from "./CompetitiveCard.vue";
   border: 1px solid var(--color-gray-300);
   border-radius: 20px;
   padding: 20px;
-  /* no fixed height — let contents flow */
 }
 
 .section-title {
@@ -61,9 +60,8 @@ import CompetitiveSituationCard from "./CompetitiveCard.vue";
   gap: 16px;
 }
 
-/* ensure each card is 1/3 of the row (minus the two gutters) */
 .card-row > * {
   flex: 1 1 calc((100% - 2 * 16px) / 3);
-  min-width: 0; /* prevents overflow */
+  min-width: 0; 
 }
 </style>
