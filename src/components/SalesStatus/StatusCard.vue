@@ -40,7 +40,6 @@ const formattedChange = computed(() => {
   return `${sign}${n}%`
 })
 
-// split off "(...)" if present
 const titleParts = computed(() => {
   const idx = props.title.indexOf('(')
   if (idx !== -1) {

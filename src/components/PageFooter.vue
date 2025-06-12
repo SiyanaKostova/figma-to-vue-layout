@@ -10,9 +10,7 @@
         <img src="../assets/icons/logo_supply.svg" alt="SupplyIQ logo" />
       </div>
 
-      <div class="footer-right">
-        @SalesIQ 2025
-      </div>
+      <div class="footer-right">@SalesIQ 2025</div>
     </div>
   </footer>
 </template>
@@ -31,12 +29,12 @@
 
 .footer-content {
   position: relative;
-  width: 100%;  
+  width: 100%;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-white );
+  color: var(--color-white);
   font: $font-16-regular;
 }
 

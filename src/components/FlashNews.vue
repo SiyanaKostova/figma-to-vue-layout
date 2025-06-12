@@ -1,11 +1,9 @@
 <template>
   <section class="flash-news-wrapper">
-    <!-- title row -->
     <h6 class="flash-title">
       Flash news about <span class="product-name">:Product:</span>
     </h6>
 
-    <!-- news tiles -->
     <div class="tiles-row d-flex gap-3">
       <article
         v-for="item in news"
@@ -19,7 +17,6 @@
         <p class="text">{{ item.text }}</p>
       </article>
 
-      <!-- arrow button on the right -->
       <button class="next-btn">
         <i class="bi bi-chevron-right"></i>
       </button>

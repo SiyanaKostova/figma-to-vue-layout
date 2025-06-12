@@ -105,7 +105,6 @@ export default {
   transform: scaleX(1);
 }
 
-/* font tokens */
 .nav-regular {
   font: $font-16-regular;
 }
