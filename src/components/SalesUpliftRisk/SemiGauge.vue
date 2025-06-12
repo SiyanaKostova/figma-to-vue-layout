@@ -13,6 +13,8 @@ const props = defineProps({
   endColor: { type: String, default: "#248E70" },
   border: { type: String, default: "#01D296" },
   centerColor: { type: String, default: "#09A578" },
+  redArrowColor: { type: String, default: "#B80D0D" },
+  isRed: { type: Boolean, default: false }
 });
 
 const svgEl = ref(null);
@@ -47,9 +49,8 @@ onMounted(() => {
     .attr("refY", 3)
     .attr("orient", "auto")
     .append("path")
-    // narrow triangle: tip at (6,3), base from (0,1)→(0,5)
     .attr("d", "M0,1 L6,3 L0,5 Z")
-    .attr("fill", props.endColor);
+    .attr("fill", props.isRed ? props.redArrowColor : props.endColor); // ✅ Conditional fill
 
   const fullArc = d3
     .arc()
@@ -75,7 +76,7 @@ onMounted(() => {
     .attr("y1", cy)
     .attr("x2", cx + r * Math.cos(theta))
     .attr("y2", cy + r * Math.sin(theta))
-    .attr("stroke", props.endColor)
+    .attr("stroke", props.isRed ? props.redArrowColor : props.endColor) // ✅ Conditional stroke
     .attr("stroke-width", 4)
     .attr("marker-end", `url(#${arrowId})`);
 

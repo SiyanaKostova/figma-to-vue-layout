@@ -51,6 +51,7 @@
               :startColor="'#FFCFCF'"
               :endColor="'#FFA1A1'"
               :border="'#B80D0D'"
+              :isRed="true"
             />
           </div>
           <TotalBox
