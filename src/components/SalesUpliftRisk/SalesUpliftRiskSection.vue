@@ -131,8 +131,8 @@ const riskCols = [
   color: var(--color-gray-700);
 }
 .title img {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 .sub {
   font: $font-normal $font-xs var(--font-family);
