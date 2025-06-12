@@ -5,9 +5,7 @@
     <SalesStatus />
     <SalesUpliftRiskSection />
     <CompetitiveSituationSection />
-        <StickyFilters />
-
-    <!-- Anything else (cards, charts) goes below -->
+    <StickyFilters />
   </main>
 </template>
 
