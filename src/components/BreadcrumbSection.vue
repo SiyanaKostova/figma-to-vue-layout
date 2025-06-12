@@ -4,6 +4,9 @@
       <li class="breadcrumb-item">
         <a href="#">Homepage</a>
       </li>
+      <li class="breadcrumb-separator">
+        <img src="../assets/icons/breadcrumb_arrow.svg" alt="arrow" />
+      </li>
       <li class="breadcrumb-item active" aria-current="page">Product</li>
     </ol>
   </nav>
@@ -27,22 +30,34 @@
   background: transparent;
   padding: 5px;
   margin: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
-  content: ">";
-  color: var(--color-primary-500);
-  padding: 0 5px;
-}
-
-.breadcrumb-item a {
+.breadcrumb-item {
   color: var(--color-gray-500);
   font-weight: $font-normal;
-  text-decoration: none;
+
+  &.active {
+    color: var(--color-primary-500);
+    font-weight: $font-bold;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--color-gray-500);
+  }
 }
 
-.breadcrumb-item.active {
-  color: var(--color-primary-500);
-  font-weight: $font-bold;
+.breadcrumb-separator {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+
+  img {
+    height: 12px;
+    width: auto;
+  }
 }
 </style>
