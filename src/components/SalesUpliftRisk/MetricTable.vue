@@ -91,8 +91,6 @@ function isGroupBoundary(colIdx) {
 .metric-table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 5px;
 }
 
 .metric-table th {
