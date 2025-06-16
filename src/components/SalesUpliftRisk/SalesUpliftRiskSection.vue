@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import SemiGauge from "./SemiGauge.vue";
+import SemiGauge from "./SemiGauge/SemiGauge.vue";
 import MetricTable from "./MetricTable.vue";
 import infoIcon from "../../assets/icons/info.svg";
 import TotalBox from "./TotalBox.vue";
