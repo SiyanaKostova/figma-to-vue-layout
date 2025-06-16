@@ -4,7 +4,7 @@
       Flash news about <span class="product-name">:Product:</span>
     </h2>
 
-    <div class="tiles-row d-flex gap-3">
+    <div class="tiles-row" ref="tilesRef">
       <article
         v-for="item in news"
         :key="item.id"
@@ -16,17 +16,21 @@
         </span>
         <p class="text">{{ item.text }}</p>
       </article>
-
-      <button class="next-btn" @click.prevent>
-        <img src="../assets/icons/chevron_gr.svg" alt="Next" />
-      </button>
     </div>
+
+    <button class="next-btn" @click.prevent="scrollNext">
+      <img src="../assets/icons/chevron_gr.svg" alt="Next" />
+    </button>
 
     <div class="mask-overlay" />
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
+const tilesRef = ref(null);
+
 const news = [
   {
     id: 1,
@@ -44,6 +48,12 @@ const news = [
     text: "Supplier top news will be shown here in the form of a live ticker",
   },
 ];
+
+function scrollNext() {
+  if (tilesRef.value) {
+    tilesRef.value.scrollBy({ left: 220, behavior: 'smooth' });
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -63,6 +73,7 @@ const news = [
   padding: 16px 20px;
   margin: 20px 95px 0 95px;
   position: relative;
+  overflow: hidden;
 }
 
 .flash-title {
@@ -80,6 +91,8 @@ const news = [
 }
 
 .tiles-row {
+  display: flex;
+  gap: 12px;
   height: 76px;
   position: relative;
 }
@@ -91,6 +104,7 @@ const news = [
   border-radius: 5px;
   padding: 8px 12px;
   font-size: $font-sm;
+  height: 100%;
 }
 
 .date {
@@ -124,6 +138,7 @@ const news = [
   align-items: center;
   justify-content: center;
   z-index: 2;
+  cursor: pointer;
 
   img {
     width: 20px;
@@ -141,5 +156,40 @@ const news = [
   border-radius: 15px;
   z-index: 1;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .flash-news-wrapper {
+    height: auto;
+    margin: 20px 16px 0 16px;
+    padding: 16px;
+  }
+
+  .tiles-row {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    height: auto;
+    padding-right: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .news-tile {
+    flex: 0 0 auto;
+    width: 70%;
+    min-width: 200px;
+    scroll-snap-align: start;
+  }
+
+  .next-btn {
+    top: auto;
+    bottom: 12px;
+    right: 8px;
+    transform: none;
+    z-index: 3;
+  }
+
+  .mask-overlay {
+    display: none;
+  }
 }
 </style>
