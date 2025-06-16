@@ -17,10 +17,12 @@
         <p class="text">{{ item.text }}</p>
       </article>
 
-      <button class="next-btn">
-        <i class="bi bi-chevron-right"></i>
+      <button class="next-btn" @click.prevent>
+        <img src="../assets/icons/chevron_gr.svg" alt="Next" />
       </button>
     </div>
+
+    <div class="mask-overlay" />
   </section>
 </template>
 
@@ -60,6 +62,7 @@ const news = [
   background: var(--color-primary-100);
   padding: 16px 20px;
   margin: 20px 95px 0 95px;
+  position: relative;
 }
 
 .flash-title {
@@ -109,17 +112,34 @@ const news = [
 
 .next-btn {
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0;
-  width: 40px;
-  height: 100%;
+  height: 30px;
+  width: 30px;
   background: var(--color-white);
-  border: 1px solid var(--color-primary-700);
-  border-left: none;
-  border-radius: 0 4px 4px 0;
+  border: 1px solid #00d498;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary-700);
+  z-index: 2;
+
+  img {
+    width: 20px;
+    height: 15px;
+  }
+}
+
+.mask-overlay {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(to right, #CCF4EA00, #CCF4EA);
+  border-radius: 15px;
+  z-index: 1;
+  pointer-events: none;
 }
 </style>
