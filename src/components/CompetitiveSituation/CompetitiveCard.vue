@@ -2,7 +2,16 @@
   <div class="card-wrapper">
     <div class="card-title-row">
       <span class="card-title">{{ title }}</span>
-      <img :src="infoIcon" alt="info" />
+      <img
+        :src="infoIcon"
+        alt="Info"
+        class="info-icon"
+        data-bs-toggle="popover"
+        data-bs-trigger="hover focus"
+        data-bs-placement="top"
+        data-bs-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        ref="cardPopover"
+      />
     </div>
 
     <div class="separator"></div>
@@ -37,12 +46,19 @@
 <script setup>
 import infoIcon from "../../assets/icons/info.svg";
 import arrowIcon from "../../assets/icons/arrow_bl.svg";
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
+import { Popover } from "bootstrap";
 
 const props = defineProps({
   title: String,
   score: Number,
   change: Number,
+});
+
+const cardPopover = ref(null);
+
+onMounted(() => {
+  if (cardPopover.value) new Popover(cardPopover.value);
 });
 
 const barStyle = computed(() => {
@@ -55,8 +71,8 @@ const barStyle = computed(() => {
   return {
     width: `${pct}%`,
     background: `linear-gradient(to right, ${startColor}, ${endColor}) no-repeat`,
-    borderRight: `2px solid ${endColor}`, 
-    borderRadius: "10px 0 0 10px", 
+    borderRight: `2px solid ${endColor}`,
+    borderRadius: "10px 0 0 10px",
   };
 });
 </script>
@@ -151,5 +167,9 @@ const barStyle = computed(() => {
 .desc-label {
   font: 400 10px var(--font-family);
   color: var(--color-gray-400);
+}
+
+.info-icon {
+  cursor: pointer;
 }
 </style>

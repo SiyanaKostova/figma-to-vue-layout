@@ -2,7 +2,16 @@
   <section class="sales-status-wrapper">
     <div class="title-row">
       <span class="title-text">Sales Status</span>
-      <img :src="infoIcon" alt="Info" class="info-icon" />
+      <img
+        :src="infoIcon"
+        alt="Info"
+        class="info-icon"
+        data-bs-toggle="popover"
+        data-bs-trigger="hover focus"
+        data-bs-placement="top"
+        data-bs-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        ref="popoverIcon"
+      />
     </div>
 
     <div class="cards-row">
@@ -15,8 +24,16 @@
 </template>
 
 <script setup>
-import infoIcon from '../../assets/icons/info.svg'
-import StatusCard from './StatusCard.vue'
+import { onMounted, ref } from "vue";
+import infoIcon from "../../assets/icons/info.svg";
+import StatusCard from "./StatusCard.vue";
+import { Popover } from "bootstrap";
+
+const popoverIcon = ref(null);
+
+onMounted(() => {
+  new Popover(popoverIcon.value);
+});
 </script>
 
 <style scoped lang="scss">
@@ -45,8 +62,7 @@ import StatusCard from './StatusCard.vue'
 }
 
 .info-icon {
-  width: 25px;
-  height: 25px;
+  cursor: pointer;
 }
 
 .cards-row {

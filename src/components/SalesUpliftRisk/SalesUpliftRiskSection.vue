@@ -7,7 +7,16 @@
           <div class="left-col">
             <div class="title">
               <span>Sales Uplift</span>
-              <img :src="infoIcon" />
+              <img
+                :src="infoIcon"
+                alt="Info"
+                class="info-icon"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-placement="top"
+                data-bs-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                ref="upliftPopover"
+              />
             </div>
             <span class="sub">(All values in k€)</span>
             <SemiGauge
@@ -41,9 +50,18 @@
           <div class="left-col">
             <div class="title">
               <span>Risk</span>
-              <img :src="infoIcon" />
+              <img
+                :src="infoIcon"
+                alt="Info"
+                class="info-icon"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-placement="top"
+                data-bs-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                ref="riskPopover"
+              />
             </div>
-             <span class="sub invisible">(All values in k€)</span>
+            <span class="sub invisible">(All values in k€)</span>
             <SemiGauge
               class="gauge risk"
               :value="6"
@@ -79,6 +97,9 @@ import MetricTable from "./MetricTable.vue";
 import infoIcon from "../../assets/icons/info.svg";
 import TotalBox from "./TotalBox.vue";
 
+import { onMounted, ref } from "vue";
+import { Popover } from "bootstrap";
+
 import upliftRows from "../../data/upliftTable.json";
 import riskRows from "../../data/riskTable.json";
 
@@ -92,6 +113,14 @@ const riskCols = [
   { key: "erosion", label: "Erosion", percent: "erosPerc" },
   { key: "total", label: "Total" },
 ];
+
+const upliftPopover = ref(null);
+const riskPopover = ref(null);
+
+onMounted(() => {
+  if (upliftPopover.value) new Popover(upliftPopover.value);
+  if (riskPopover.value) new Popover(riskPopover.value);
+});
 </script>
 
 <style scoped lang="scss">
@@ -100,10 +129,12 @@ const riskCols = [
 .wrapper {
   margin: 20px 108px 0 108px;
 }
+
 .row {
   display: flex;
   gap: 16px;
 }
+
 .card {
   flex: 1;
   background: var(--color-gray-25);
@@ -119,11 +150,13 @@ const riskCols = [
   gap: 38px;
   padding: 20px 18px 0 18px;
 }
+
 .left-col {
   flex: 0 0 205px;
   display: flex;
   flex-direction: column;
 }
+
 .title {
   display: flex;
   align-items: center;
@@ -131,10 +164,12 @@ const riskCols = [
   font: $font-20-bold;
   color: var(--color-gray-700);
 }
+
 .title img {
   width: 25px;
   height: 25px;
 }
+
 .sub {
   font: $font-normal $font-xs var(--font-family);
   color: var(--color-gray-400);
@@ -143,6 +178,7 @@ const riskCols = [
 .gauge.up {
   margin-top: 20px;
 }
+
 .gauge.risk {
   margin-top: 20px;
 }
@@ -171,5 +207,9 @@ const riskCols = [
 
 .invisible {
   visibility: hidden;
+}
+
+.info-icon {
+  cursor: pointer;
 }
 </style>

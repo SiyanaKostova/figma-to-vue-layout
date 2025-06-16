@@ -3,7 +3,16 @@
     <div class="competitive-container">
       <div class="section-title">
         Competitive Situation
-        <img :src="infoIcon" alt="info" />
+        <img
+          :src="infoIcon"
+          alt="Info"
+          class="info-icon"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover focus"
+          data-bs-placement="top"
+          data-bs-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          ref="competitivePopover"
+        />
       </div>
 
       <div class="card-row">
@@ -28,8 +37,17 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from "vue";
+import { Popover } from "bootstrap";
+
 import infoIcon from "../../assets/icons/info.svg";
 import CompetitiveSituationCard from "./CompetitiveCard.vue";
+
+const competitivePopover = ref(null);
+
+onMounted(() => {
+  if (competitivePopover.value) new Popover(competitivePopover.value);
+});
 </script>
 
 <style scoped lang="scss">
@@ -62,6 +80,10 @@ import CompetitiveSituationCard from "./CompetitiveCard.vue";
 
 .card-row > * {
   flex: 1 1 calc((100% - 2 * 16px) / 3);
-  min-width: 0; 
+  min-width: 0;
+}
+
+.info-icon {
+  cursor: pointer;
 }
 </style>
