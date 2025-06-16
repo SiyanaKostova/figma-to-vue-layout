@@ -1,4 +1,5 @@
 import * as d3 from "d3";
+import gridBackground from '@/assets/icons/grid.svg';
 
 export function useSemiGauge(svgEl, props) {
   const r = props.diameter / 2;
@@ -18,6 +19,14 @@ export function useSemiGauge(svgEl, props) {
   function draw() {
     const svg = d3.select(svgEl.value);
     svg.selectAll("*").remove();
+
+    svg.append("image")
+      .attr("href", gridBackground)
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", props.diameter)
+      .attr("height", props.diameter / 2)
+      .lower();
 
     const defs = svg.append("defs");
     createGradient(defs);
