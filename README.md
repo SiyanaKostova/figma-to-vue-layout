@@ -14,10 +14,5 @@ Key features include flash-news tickers, sales-status cards, D3-driven semicircl
 ### Scaffold & Install
 
 ```bash
-# Create project from the Vite Vue template
-npm create vite@latest vue-layout-project -- --template vue
-cd vue-layout-project
-
-# Install dependencies
 npm install
-npm install bootstrap sass d3 vue-router
+npm run dev
