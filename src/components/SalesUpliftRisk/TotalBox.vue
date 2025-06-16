@@ -42,7 +42,9 @@
           />
         </div>
 
-        <img :src="greenArrow" alt="go" class="row-next" />
+        <a href="#" class="row-next-button" @click.prevent>
+          <span class="chevron-icon" />
+        </a>
       </div>
     </div>
   </div>
@@ -52,7 +54,6 @@
 import upArrow from "../../assets/icons/up.svg";
 import downArrow from "../../assets/icons/down.svg";
 import forwardArrow from "../../assets/icons/forward.svg";
-import greenArrow from "../../assets/icons/green_ar.svg";
 
 const props = defineProps({
   total: Number,
@@ -179,7 +180,7 @@ const arrowIcon = (p) => (p > 0 ? upArrow : p < 0 ? downArrow : forwardArrow);
           justify-content: center;
           height: 20px;
           padding: 0 8px;
-          border: 1px solid var( --color-gray-300);
+          border: 1px solid var(--color-gray-300);
           background-color: var(--color-gray-25);
           border-radius: 6px;
           font: $font-16-regular;
@@ -193,9 +194,29 @@ const arrowIcon = (p) => (p > 0 ? upArrow : p < 0 ? downArrow : forwardArrow);
         }
       }
 
-      .row-next {
+      .row-next-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
         height: 25px;
-        width: auto;
+        width: 25px;
+        background-color: var(--color-primary-700);
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--color-primary-850);
+        }
+        .chevron-icon {
+          width: 20px;
+          height: 15px;
+          background-image: url("@/assets/icons/chevron.svg");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          background-position: center;
+          display: block;
+        }
       }
     }
   }
