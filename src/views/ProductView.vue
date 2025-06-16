@@ -1,6 +1,5 @@
 <template>
   <main class="page-content">
-    <h1 class="visually-hidden">Product</h1>
     <BreadcrumbSection />
     <FlashNews />
     <SalesStatus />

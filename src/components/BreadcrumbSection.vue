@@ -7,7 +7,9 @@
       <li class="breadcrumb-separator">
         <img src="../assets/icons/breadcrumb_arrow.svg" alt="arrow" />
       </li>
-      <li class="breadcrumb-item active" aria-current="page">Product</li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <h1 class="breadcrumb-title">Product</h1>
+      </li>
     </ol>
   </nav>
 </template>
@@ -59,5 +61,13 @@
     height: 12px;
     width: auto;
   }
+}
+
+.breadcrumb-title {
+  font: inherit;
+  margin: 0;
+  display: inline;
+  font-weight: $font-bold;
+  color: var(--color-primary-500);
 }
 </style>
