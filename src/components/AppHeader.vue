@@ -2,8 +2,11 @@
   <header class="app-header">
     <div class="header-content">
       <div class="header-inner d-flex justify-content-between align-items-center">
-        <div class="left-side">
-          <img :src="logo" alt="SupplyIQ Logo" class="logo-img" />
+        <div class="left-side d-flex align-items-center gap-2">
+          <a href="/">
+            <img :src="logoIcon" alt="SupplyIQ Logo" class="logo-img" />
+          </a>
+          <img :src="logoText" alt="SupplyIQ Text" class="text-img" />
         </div>
 
         <div class="right-side d-flex align-items-center gap-4">
@@ -22,14 +25,16 @@
 </template>
 
 <script>
-import logo from "../assets/icons/supply.svg";
+import logoIcon from "../assets/icons/logo_header.svg";
+import logoText from "../assets/icons/supplyiq_header.svg";
 import profileIcon from "../assets/icons/profile.svg";
 
 export default {
   name: "AppHeader",
   data() {
     return {
-      logo,
+      logoIcon,
+      logoText,
       profileIcon,
     };
   },
@@ -65,8 +70,14 @@ export default {
 }
 
 .logo-img {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.text-img {
   height: 40px;
-  width: auto;
   display: block;
 }
 
