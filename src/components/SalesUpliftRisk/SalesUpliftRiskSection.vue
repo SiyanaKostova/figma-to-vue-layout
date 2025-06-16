@@ -6,7 +6,7 @@
         <div class="top-row">
           <div class="left-col">
             <div class="title">
-              <span>Sales Uplift</span>
+  <h3 class="title-text">Sales Uplift</h3>
               <img
                 :src="infoIcon"
                 alt="Info"
@@ -49,7 +49,7 @@
         <div class="top-row">
           <div class="left-col">
             <div class="title">
-              <span>Risk</span>
+  <h3 class="title-text">Risk</h3>
               <img
                 :src="infoIcon"
                 alt="Info"
@@ -163,6 +163,15 @@ onMounted(() => {
   gap: 10px;
   font: $font-20-bold;
   color: var(--color-gray-700);
+  line-height: 100%;
+}
+
+.title-text {
+  font: $font-20-bold;
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .title img {

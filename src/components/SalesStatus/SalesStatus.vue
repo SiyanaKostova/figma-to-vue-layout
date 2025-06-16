@@ -1,7 +1,7 @@
 <template>
   <section class="sales-status-wrapper">
     <div class="title-row">
-      <span class="title-text">Sales Status</span>
+      <h2 class="title-text">Sales Status</h2>
       <img
         :src="infoIcon"
         alt="Info"
@@ -59,9 +59,12 @@ onMounted(() => {
 .title-text {
   font: $font-20-bold;
   line-height: 100%;
+  margin: 0; 
 }
 
 .info-icon {
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 }
 

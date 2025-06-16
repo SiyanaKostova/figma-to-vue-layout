@@ -1,8 +1,8 @@
 <template>
   <section class="flash-news-wrapper">
-    <h6 class="flash-title">
+    <h2 class="flash-title">
       Flash news about <span class="product-name">:Product:</span>
-    </h6>
+    </h2>
 
     <div class="tiles-row d-flex gap-3">
       <article
@@ -137,7 +137,7 @@ const news = [
   right: 20px;
   width: 80px;
   height: 100%;
-  background: linear-gradient(to right, #CCF4EA00, #CCF4EA);
+  background: linear-gradient(to right, #ccf4ea00, #ccf4ea);
   border-radius: 15px;
   z-index: 1;
   pointer-events: none;

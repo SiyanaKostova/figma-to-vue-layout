@@ -2,7 +2,7 @@
   <div class="total-box">
     <div class="tb-header">
       <div class="tb-title-group">
-        <span class="tb-label">Total</span>
+        <h3 class="tb-label">Total</h3>
         <span class="tb-value">€{{ formatNumber(total) }}</span>
       </div>
       <div class="tb-change-box">

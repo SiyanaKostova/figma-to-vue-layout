@@ -1,8 +1,10 @@
 <template>
   <div class="status-card">
     <div class="card-title">
-      <span class="title-text">{{ titleParts.text }}</span>
-      <span v-if="titleParts.unit" class="title-unit">{{ titleParts.unit }}</span>
+      <h3 class="title-text">{{ titleParts.text }}</h3>
+      <span v-if="titleParts.unit" class="title-unit">{{
+        titleParts.unit
+      }}</span>
     </div>
 
     <div class="card-content">
@@ -16,40 +18,40 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import up from '../../assets/icons/up.svg'
-import down from '../../assets/icons/down.svg'
-import forward from '../../assets/icons/forward.svg'
+import { computed } from "vue";
+import up from "../../assets/icons/up.svg";
+import down from "../../assets/icons/down.svg";
+import forward from "../../assets/icons/forward.svg";
 
 const props = defineProps({
-  title:  String,
-  value:  String,
-  change: String
-})
+  title: String,
+  value: String,
+  change: String,
+});
 
 const arrowIcon = computed(() => {
-  const n = parseFloat(props.change)
-  if (n > 0) return up
-  if (n < 0) return down
-  return forward
-})
+  const n = parseFloat(props.change);
+  if (n > 0) return up;
+  if (n < 0) return down;
+  return forward;
+});
 
 const formattedChange = computed(() => {
-  const n    = parseFloat(props.change)
-  const sign = n > 0 ? '+' : ''
-  return `${sign}${n}%`
-})
+  const n = parseFloat(props.change);
+  const sign = n > 0 ? "+" : "";
+  return `${sign}${n}%`;
+});
 
 const titleParts = computed(() => {
-  const idx = props.title.indexOf('(')
+  const idx = props.title.indexOf("(");
   if (idx !== -1) {
     return {
       text: props.title.slice(0, idx).trim(),
-      unit: props.title.slice(idx)
-    }
+      unit: props.title.slice(idx),
+    };
   }
-  return { text: props.title, unit: '' }
-})
+  return { text: props.title, unit: "" };
+});
 </script>
 
 <style scoped lang="scss">
@@ -71,7 +73,7 @@ const titleParts = computed(() => {
   display: flex;
   align-items: baseline;
   border-bottom: 1px solid var(--color-gray-300);
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 .title-text {

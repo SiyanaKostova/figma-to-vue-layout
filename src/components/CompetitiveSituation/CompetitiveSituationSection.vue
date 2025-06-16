@@ -1,7 +1,7 @@
 <template>
   <section class="competitive-wrapper">
     <div class="competitive-container">
-      <div class="section-title">
+      <h2 class="section-title">
         Competitive Situation
         <img
           :src="infoIcon"
@@ -13,9 +13,9 @@
           data-bs-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           ref="competitivePopover"
         />
-      </div>
+      </h2>
 
-      <div class="card-row">
+      <h3 class="card-row">
         <CompetitiveSituationCard
           title="Competitive Edge in Market"
           :score="80"
@@ -31,7 +31,7 @@
           :score="81"
           :change="5"
         />
-      </div>
+      </h3>
     </div>
   </section>
 </template>
