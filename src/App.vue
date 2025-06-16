@@ -1,15 +1,17 @@
 <template>
-  <AppHeader />
-  <router-view />
+  <div class="container-fluid px-3">
+    <AppHeader />
+    <router-view />
+    <StickyFilters />
+  </div>
   <PageFooter />
-  <StickyFilters />
 </template>
 
 <script setup>
-import AppHeader from './components/AppHeader.vue'
-import PageFooter from './components/PageFooter.vue';
-import StickyFilters from './components/StickyFilters.vue';
+import AppHeader from "./components/AppHeader.vue";
+import PageFooter from "./components/PageFooter.vue";
+import StickyFilters from "./components/StickyFilters.vue";
 </script>
 
-<style>
+<style scoped>
 </style>
