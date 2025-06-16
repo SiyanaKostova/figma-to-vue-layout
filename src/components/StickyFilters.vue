@@ -48,7 +48,13 @@
       </div>
     </div>
 
-    <button class="price-btn">Price Effect</button>
+    <div class="filters-right">
+      <button class="price-btn">Price Effect</button>
+      <button class="minimize-btn" @click.prevent>
+        <img src="../assets/icons/minimize.svg" alt="Minimize" />
+        <span class="minimize-text">Minimize</span>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -66,12 +72,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 97px 0;
 }
 
 .filters-left {
   display: flex;
   gap: 5px;
+  margin-left: 97px;
+}
+
+.filters-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 10px;
 }
 
 .other-filters {
@@ -83,10 +96,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   border: 1px solid var(--color-primary-700);
   border-radius: 10px;
-  padding: 0 16px; 
+  padding: 0 16px;
   min-width: 140px;
   height: 44px;
   background: var(--color-white);
@@ -126,7 +139,7 @@
 
 .dropdown-icon {
   position: absolute;
-  right: 6px; 
+  right: 6px;
   top: 50%;
   transform: translateY(-50%);
   width: 12px;
@@ -142,5 +155,28 @@
   font: $font-16-regular;
   color: var(--color-white);
   cursor: pointer;
+}
+
+.minimize-btn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 15px;
+  border: 1px solid #e3e2e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font: $font-10-regular;
+  color: var(--color-gray-900);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  img {
+    width: 10px;
+    height: 10px;
+  }
 }
 </style>
