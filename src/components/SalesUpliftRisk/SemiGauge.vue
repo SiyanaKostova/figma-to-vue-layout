@@ -21,25 +21,44 @@ const svgEl = ref(null);
 
 onMounted(() => {
   const r = props.diameter / 2;
+  const svg = initSvg();
+  const gradId = createGradient(svg);
+  const arrowId = createArrowMarker(svg);
+
+  drawArc(svg, r, gradId);
+  drawArrow(svg, r, arrowId);
+  drawTipDot(svg, r);
+  drawLabels(svg, r);
+});
+
+function initSvg() {
   const svg = d3.select(svgEl.value);
   svg.selectAll("*").remove();
+  return svg;
+}
 
+function createGradient(svg) {
+  const gradId = "grad-" + Math.random().toString(36).slice(2);
   const defs = svg.append("defs");
 
-  const gradId = "grad-" + Math.random().toString(36).slice(2);
-  const grad = defs
-    .append("linearGradient")
+  const grad = defs.append("linearGradient")
     .attr("id", gradId)
     .attr("x1", 0)
     .attr("y1", 1)
     .attr("x2", 1)
     .attr("y2", 0);
+
   grad.append("stop").attr("offset", "0%").attr("stop-color", props.startColor);
   grad.append("stop").attr("offset", "100%").attr("stop-color", props.endColor);
 
+  return gradId;
+}
+
+function createArrowMarker(svg) {
   const arrowId = "arrow-" + Math.random().toString(36).slice(2);
-  defs
-    .append("marker")
+  const defs = svg.select("defs");
+
+  defs.append("marker")
     .attr("id", arrowId)
     .attr("viewBox", "0 0 6 6")
     .attr("markerUnits", "strokeWidth")
@@ -52,33 +71,32 @@ onMounted(() => {
     .attr("d", "M0,1 L6,3 L0,5 Z")
     .attr("fill", props.isRed ? props.redArrowColor : props.endColor);
 
-  const fullArc = d3
-    .arc()
+  return arrowId;
+}
+
+function drawArc(svg, r, gradId) {
+  const arc = d3.arc()
     .innerRadius(0)
     .outerRadius(r)
     .startAngle(-Math.PI / 2)
     .endAngle(Math.PI / 2);
 
-  svg
-    .append("path")
-    .attr("d", fullArc())
+  svg.append("path")
+    .attr("d", arc())
     .attr("fill", `url(#${gradId})`)
     .attr("stroke", props.border)
     .attr("transform", `translate(${r},${r})`);
+}
 
+function drawArrow(svg, r, arrowId) {
   const theta = Math.PI + (props.value / 30) * Math.PI;
-
   const cx = r;
   const cy = r;
-  const arrowLength = r - 6; 
+  const arrowLength = r - 6;
   const xEnd = cx + arrowLength * Math.cos(theta);
   const yEnd = cy + arrowLength * Math.sin(theta);
-  const dotX = cx + r * Math.cos(theta);
-  const dotY = cy + r * Math.sin(theta);
 
-  // Arrow line
-  svg
-    .append("line")
+  svg.append("line")
     .attr("x1", cx)
     .attr("y1", cy)
     .attr("x2", xEnd)
@@ -86,20 +104,28 @@ onMounted(() => {
     .attr("stroke", props.isRed ? props.redArrowColor : props.endColor)
     .attr("stroke-width", 4)
     .attr("marker-end", `url(#${arrowId})`);
+}
 
-  // Tip dot
-  svg
-    .append("circle")
+function drawTipDot(svg, r) {
+  const theta = Math.PI + (props.value / 30) * Math.PI;
+  const cx = r;
+  const cy = r;
+  const dotX = cx + r * Math.cos(theta);
+  const dotY = cy + r * Math.sin(theta);
+
+  svg.append("circle")
     .attr("cx", dotX)
     .attr("cy", dotY)
     .attr("r", 5)
-    .attr("fill", props.isRed ? props.redArrowColor : props.endColor) 
-    .attr("stroke", props.isRed ? props.redArrowColor : props.endColor) 
+    .attr("fill", props.isRed ? props.redArrowColor : props.endColor)
+    .attr("stroke", props.isRed ? props.redArrowColor : props.endColor)
     .attr("stroke-width", 2);
+}
 
+function drawLabels(svg, r) {
   const labelY = r + 20;
-  svg
-    .append("text")
+
+  svg.append("text")
     .text("0%")
     .attr("x", 0)
     .attr("y", labelY)
@@ -107,8 +133,7 @@ onMounted(() => {
     .style("font-size", "10px")
     .style("font-weight", "400");
 
-  svg
-    .append("text")
+  svg.append("text")
     .text("30%")
     .attr("x", props.diameter)
     .attr("y", labelY)
@@ -117,14 +142,13 @@ onMounted(() => {
     .style("font-size", "10px")
     .style("font-weight", "400");
 
-  svg
-    .append("text")
+  svg.append("text")
     .text(`+${props.value}%`)
-    .attr("x", cx)
+    .attr("x", r)
     .attr("y", labelY + 12)
     .attr("text-anchor", "middle")
     .attr("fill", props.centerColor)
     .style("font-size", "16px")
     .style("font-weight", "700");
-});
+}
 </script>
