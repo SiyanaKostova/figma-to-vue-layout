@@ -15,4 +15,4 @@ Key features include flash-news tickers, sales-status cards, D3-driven semicircl
 
 ```bash
 npm install
-npm run dev
+npx serve dist
