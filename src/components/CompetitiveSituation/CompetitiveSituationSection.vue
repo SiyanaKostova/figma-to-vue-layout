@@ -86,4 +86,22 @@ onMounted(() => {
 .info-icon {
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .competitive-wrapper {
+    margin: 20px 16px 0 16px;
+  }
+
+  .competitive-container {
+    padding: 16px;
+  }
+
+  .card-row {
+    flex-direction: column;
+  }
+
+  .card-row > * {
+    flex: 1 1 100%;
+  }
+}
 </style>
