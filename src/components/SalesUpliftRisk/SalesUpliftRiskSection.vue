@@ -221,4 +221,51 @@ onMounted(() => {
 .info-icon {
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin: 20px 16px 0 16px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    height: auto;
+    padding-bottom: 16px;
+  }
+
+  .top-row {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .left-col {
+    flex: unset;
+    align-items: center;
+    text-align: center;
+  }
+
+  .gauge.up,
+  .gauge.risk {
+    margin-top: 16px;
+  }
+
+  .total-box {
+    width: 100%;
+  }
+
+  .table-wrap {
+    margin-top: 16px;
+    padding: 0 16px;
+    height: auto;
+  }
+
+  .table-wrap .metric-table {
+    height: auto;
+  }
+}
 </style>

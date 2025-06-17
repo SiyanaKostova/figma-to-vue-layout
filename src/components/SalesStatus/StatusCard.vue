@@ -2,9 +2,7 @@
   <div class="status-card">
     <div class="card-title">
       <h3 class="title-text">{{ titleParts.text }}</h3>
-      <span v-if="titleParts.unit" class="title-unit">{{
-        titleParts.unit
-      }}</span>
+      <span v-if="titleParts.unit" class="title-unit">{{ titleParts.unit }}</span>
     </div>
 
     <div class="card-content">
@@ -119,5 +117,11 @@ const titleParts = computed(() => {
 .arrow-icon {
   width: 12px;
   height: 12px;
+}
+
+@media (max-width: 768px) {
+  .status-card {
+    width: 100%;
+  }
 }
 </style>

@@ -59,7 +59,7 @@ onMounted(() => {
 .title-text {
   font: $font-20-bold;
   line-height: 100%;
-  margin: 0; 
+  margin: 0;
 }
 
 .info-icon {
@@ -72,5 +72,17 @@ onMounted(() => {
   display: flex;
   gap: 12px;
   margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .sales-status-wrapper {
+    height: auto;
+    margin: 20px 16px 0 16px;
+    padding: 16px;
+  }
+
+  .cards-row {
+    flex-direction: column;
+  }
 }
 </style>
