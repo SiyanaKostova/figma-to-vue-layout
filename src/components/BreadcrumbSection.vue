@@ -24,8 +24,12 @@
   font-family: var(--font-family);
   font-size: $font-sm;
   line-height: 100%;
-  margin: 0 0 0 97px;
+  margin: 0 16px 0 16px; 
   height: 17px;
+
+    @media (min-width: 769px) {
+    margin: 0 0 0 97px;
+  }
 }
 
 .breadcrumb {
