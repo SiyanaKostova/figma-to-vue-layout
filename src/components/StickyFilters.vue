@@ -67,29 +67,55 @@
   position: sticky;
   bottom: 0;
   z-index: 20;
-  height: 60px;
+  height: auto;
   background: var(--color-white);
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  gap: 8px;
+
+  @media (min-width: 769px) {
+    flex-wrap: nowrap;
+    height: 60px;
+    padding: 0;
+  }
 }
 
 .filters-left {
   display: flex;
   gap: 5px;
-  margin-left: 97px;
+  flex-wrap: wrap;
+  margin-left: 0;
+
+  @media (min-width: 769px) {
+    margin-left: 97px;
+    flex-wrap: nowrap;
+  }
 }
 
 .filters-right {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-right: 10px;
+  gap: 8px;
+  margin-left: auto;
+
+  @media (min-width: 769px) {
+    gap: 15px;
+    margin-right: 10px;
+  }
 }
 
 .other-filters {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  @media (min-width: 769px) {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
 }
 
 .filter-box {
@@ -99,16 +125,27 @@
   justify-content: center;
   border: 1px solid var(--color-primary-700);
   border-radius: 10px;
-  padding: 0 16px;
-  min-width: 140px;
-  height: 44px;
+  padding: 0 12px;
+  min-width: 120px;
+  height: 34px;
   background: var(--color-white);
+  box-sizing: border-box;
+
+  @media (min-width: 769px) {
+    padding: 0 16px;
+    min-width: 140px;
+    height: 44px;
+  }
 }
 
 .filter-box.date-box {
   flex-direction: row;
   align-items: center;
-  min-width: 215px;
+  min-width: 180px;
+
+  @media (min-width: 769px) {
+    min-width: 215px;
+  }
 }
 
 .date-box img:first-child {
@@ -120,9 +157,19 @@
   color: var(--color-gray-700);
 }
 
+@media (max-width: 768px) {
+  .filter-box.date-box .filter-text {
+    font-size: 12px;
+  }
+}
+
 .filter-label {
-  font: 400 12px var(--font-family);
+  font: 400 10px var(--font-family);
   color: var(--color-gray-400);
+
+  @media (min-width: 769px) {
+    font: 400 12px var(--font-family);
+  }
 }
 
 .value-row {
@@ -133,8 +180,12 @@
 }
 
 .filter-value {
-  font: $font-16-regular;
+  font: 400 12px var(--font-family);
   color: var(--color-gray-700);
+
+  @media (min-width: 769px) {
+    font: $font-16-regular;
+  }
 }
 
 .dropdown-icon {
@@ -147,27 +198,37 @@
 }
 
 .price-btn {
-  height: 44px;
+  height: 30px;
+  padding: 0 10px;
+  font: $font-14-regular;
+  font-family: var(--font-family);
   background: var(--color-primary-700);
   border: none;
-  border-radius: 9px;
-  padding: 0 32px;
-  font: $font-16-regular;
+  border-radius: 8px;
   color: var(--color-white);
-  cursor: pointer;
+  white-space: nowrap;
+
+  @media (min-width: 769px) {
+    height: 44px;
+    padding: 0 32px;
+    font: $font-16-regular;
+  }
 }
 
 .minimize-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3px;
-  height: 15px;
+  padding: 0 10px;
+  font: $font-10-regular;
+  font-family: var(--font-family);
+  color: var(--color-gray-900);
   border: 1px solid #e3e2e0;
   border-radius: 8px;
   background-color: #ffffff;
   cursor: pointer;
-  font: $font-10-regular;
-  color: var(--color-gray-900);
+  white-space: nowrap;
   transition: background-color 0.2s ease;
 
   &:hover {
@@ -177,6 +238,10 @@
   img {
     width: 10px;
     height: 10px;
+  }
+
+  @media (min-width: 769px) {
+    height: 15px;
   }
 }
 </style>
